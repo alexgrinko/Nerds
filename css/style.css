@@ -1886,11 +1886,6 @@ h1 {
 }
 
 .imege-catalog {
-    /*
-    border-bottom: 1px solid var(--basic-gray-100);
-    border-left: 1px solid var(--basic-gray-100);
-    border-right: 1px solid var(--basic-gray-100);
-    */
     width: 358px;
     height: 576px;
     border-bottom-right-radius: 3px;
