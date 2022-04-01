@@ -26,13 +26,18 @@ contactsLink.addEventListener('click', function(evt) {
     }
 });
 
-modalClose.addEventListener('click', function() {
+modalClose.addEventListener('click', function(evt) {
+    evt.preventDefault();
     modal.classList.remove('modal-block');
+    modal.classList.remove('modal-error');
 });
 
 modalForm.addEventListener('submit', function(evt) {
     if (!modalLogin.value || !modalEmail.value) {
         evt.preventDefault();
+        modal.classList.remove('modal-error');
+        modal.offsetWidth = modal.offsetWidth;
+        modal.classList.add("modal-error");
     } else {
         if (isStorageSupport) {
             localStorage.setItem('name', modalLogin.value);
@@ -42,9 +47,10 @@ modalForm.addEventListener('submit', function(evt) {
 
 window.addEventListener("keydown", function(evt) {
     if (evt.keyCode === 27) {
-        if (modal.classList.add('modal-block')) {
+        if (modal.classList.remove('modal-block')) {
             evt.preventDefault();
-            modal.classList.add('modal-block');
+            modal.classList.remove('modal-block');
+            modal.classList.remove('modal-error');
         }
     }
 });
