@@ -5,6 +5,7 @@ const modalLogin = modal.querySelector('.modal-name');
 const modalEmail = modal.querySelector('.modal-email');
 const modalForm = modal.querySelector('.answer-form');
 const modalText = modal.querySelector('.modal-text');
+const darkPage = document.querySelector('.dark-page');
 
 let isStorageSupport = true;
 let storage = "";
@@ -24,12 +25,14 @@ contactsLink.addEventListener('click', function(evt) {
     } else {
         modalLogin.focus();
     }
+    darkPage.classList.add('dark-page-block');
 });
 
 modalClose.addEventListener('click', function(evt) {
     evt.preventDefault();
     modal.classList.remove('modal-block');
     modal.classList.remove('modal-error');
+    darkPage.classList.remove('dark-page-block');
 });
 
 modalForm.addEventListener('submit', function(evt) {
@@ -52,5 +55,13 @@ window.addEventListener("keydown", function(evt) {
             modal.classList.remove('modal-block');
             modal.classList.remove('modal-error');
         }
+        darkPage.classList.remove('dark-page-block');
     }
+});
+
+darkPage.addEventListener('click', function(evt) {
+    evt.preventDefault();
+    modal.classList.remove('modal-block');
+    modal.classList.remove('modal-error');
+    darkPage.classList.remove('dark-page-block');
 });
